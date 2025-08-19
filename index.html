@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Омск - культурная столица Сибири</title>
+    <meta name="description" content="Официальный гид по достопримечательностям Омска. Узнайте что посмотреть, куда сходить и чем заняться в самом красивом городе Сибири.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero__video-container">
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="Омск. Достопримечательности Омска. Что посмотреть в Омске. Что привезти из Омск - Trim - Trim_compressed.mp4" type="video/mp4">
+            </video>
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="hero__content container">
+            <h1 class="hero__title">Омск</h1>
+            <p class="hero__subtitle">Культурная столица Сибири</p>
+            <button id="scrollDown" class="hero__scroll-btn" aria-label="Прокрутить вниз">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        
+        <nav class="navbar">
+            <div class="navbar__container container">
+                <a href="#" class="navbar__logo">ОмскГид</a>
+                
+                <button class="navbar__toggler" aria-label="Меню" aria-expanded="false">
+                    <span class="navbar__toggler-icon"></span>
+                    <span class="navbar__toggler-icon"></span>
+                    <span class="navbar__toggler-icon"></span>
+                </button>
+                
+                <ul class="navbar__menu">
+                    <li><a href="#library" class="navbar__link">Библиотека</a></li>
+                    <li><a href="#theater" class="navbar__link">Театр</a></li>
+                    <li><a href="#embankment" class="navbar__link">Набережная</a></li>
+                    <li><a href="#news" class="navbar__link">Билеты</a></li>
+                    <li><a href="#map" class="navbar__link">Карта</a></li>
+                    <li>
+                        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+                            <i class="fas fa-moon"></i>
+                            <span>Ночной режим</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="library" class="attraction">
+            <div class="attraction__container container">
+                <div class="attraction__image">
+                    <div class="image-wrapper">
+                        <img src="scale_1200.jpg" 
+                             alt="Библиотека имени А.С. Пушкина в Омске" 
+                             loading="lazy"
+                             width="600"
+                             height="400">
+                        <div class="attraction__badge">Культура</div>
+                    </div>
+                </div>
+                
+                <div class="attraction__info">
+                    <h2 class="attraction__title">Библиотека имени А.С. Пушкина</h2>
+                    
+                    <div class="attraction__rating">
+                        <div class="stars" aria-label="Рейтинг 5 из 5">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <span class="reviews">142 отзыва</span>
+                    </div>
+                    
+                    <p class="attraction__description">Омская государственная областная научная библиотека имени А. С. Пушкина — крупнейшее книжное собрание региона с фондом более 3 миллионов экземпляров. Современное здание сочетает традиционные библиотечные услуги с новейшими технологиями.</p>
+                    
+                    <ul class="attraction__features">
+                        <li><i class="fas fa-calendar-alt"></i> Год основания: 1907</li>
+                        <li><i class="fas fa-paint-brush"></i> Архитектурный стиль: Советский модернизм</li>
+                        <li><i class="fas fa-book-open"></i> Фонд: более 3 млн экземпляров</li>
+                        <li><i class="fas fa-wheelchair"></i> Доступная среда</li>
+                    </ul>
+                    
+                    <div class="attraction__actions">
+                        <a href="https://omsklib.ru/" class="btn btn--primary">Записаться на экскурсию</button></a>
+                        <button class="btn btn--outline btn-hours">
+                            <i class="fas fa-clock"></i> Часы работы
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="hoursModal" class="modal">
+            <div class="modal__content">
+                <button class="modal__close">&times;</button>
+                <h3 class="modal__title">Часы работы библиотеки</h3>
+                <div class="schedule">
+                    <div class="schedule__item">
+                        <span class="schedule__day">Понедельник</span>
+                        <span class="schedule__hours">10:00 - 20:00</span>
+                    </div>
+                    <div class="schedule__item">
+                        <span class="schedule__day">Вторник</span>
+                        <span class="schedule__hours">10:00 - 20:00</span>
+                    </div>
+                    <div class="schedule__item">
+                        <span class="schedule__day">Среда</span>
+                        <span class="schedule__hours">10:00 - 20:00</span>
+                    </div>
+                    <div class="schedule__item">
+                        <span class="schedule__day">Четверг</span>
+                        <span class="schedule__hours">10:00 - 20:00</span>
+                    </div>
+                    <div class="schedule__item">
+                        <span class="schedule__day">Пятница</span>
+                        <span class="schedule__hours">10:00 - 20:00</span>
+                    </div>
+                    <div class="schedule__item">
+                        <span class="schedule__day">Суббота</span>
+                        <span class="schedule__hours">11:00 - 18:00</span>
+                    </div>
+                    <div class="schedule__item schedule__item--current">
+                        <span class="schedule__day">Воскресенье</span>
+                        <span class="schedule__hours">Выходной</span>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <p>Последний вход за 30 минут до закрытия</p>
+                    <p>Санитарный день - последний четверг месяца</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="theater" class="attraction attraction--reverse">
+            <div class="attraction__container container">
+                <div class="attraction__image">
+                    <div class="image-wrapper">
+                        <img src="1496085503_123.jpg" 
+                             alt="Омский академический театр драмы" 
+                             loading="lazy"
+                             width="600"
+                             height="400">
+                        <div class="attraction__badge">Искусство</div>
+                    </div>
+                </div>
+                
+                <div class="attraction__info">
+                    <h2 class="attraction__title">Омский академический театр драмы</h2>
+                    
+                    <div class="attraction__rating">
+                        <div class="stars" aria-label="Рейтинг 4.5 из 5">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                        </div>
+                        <span class="reviews">89 отзывов</span>
+                    </div>
+                    
+                    <p class="attraction__description">Один из старейших театров Сибири, основанный в 1874 году. Современное здание в стиле сталинского ампира построено в 1955 году. В репертуаре — классические и современные постановки, фестивали и экспериментальные проекты.</p>
+                    
+                    <ul class="attraction__features">
+                        <li><i class="fas fa-archway"></i> Архитектор: Хворинов</li>
+                        <li><i class="fas fa-chair"></i> Вместимость: 800 мест</li>
+                        <li><i class="fas fa-landmark"></i> Памятник архитектуры</li>
+                        <li><i class="fas fa-theater-masks"></i> 30+ спектаклей в репертуаре</li>
+                    </ul>
+                    
+                    <div class="attraction__actions">
+                        <a href="https://www.omskdrama.ru/poster/repertoire/" class="btn btn--primary">Афиша спектаклей</button></a>
+                        <button class="btn btn--outline btn-map">
+                            <i class="fas fa-map-marker-alt"></i> Как добраться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="embankment" class="attraction">
+            <div class="attraction__container container">
+                <div class="attraction__image">
+                    <div class="image-wrapper">
+                        <img src="Naberezhnaya-Tukhachevskogo.jpg" 
+                             alt="Набережная Тухачевского в Омске" 
+                             loading="lazy"
+                             width="600"
+                             height="400">
+                        <div class="attraction__badge">Отдых</div>
+                    </div>
+                </div>
+                
+                <div class="attraction__info">
+                    <h2 class="attraction__title">Набережная Тухачевского</h2>
+                    
+                    <div class="attraction__rating">
+                        <div class="stars" aria-label="Рейтинг 5 из 5">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <span class="reviews">256 отзывов</span>
+                    </div>
+                    
+                    <p class="attraction__description">Прекрасное место для прогулок с видом на Иртыш. После масштабной реконструкции набережная стала любимым местом отдыха омичей и гостей города. Летом работают фонтаны и кафе, зимой — ледовые горки и катки.</p>
+                    
+                    <ul class="attraction__features">
+                        <li><i class="fas fa-ruler-combined"></i> Протяженность: 4.5 км</li>
+                        <li><i class="fas fa-calendar-check"></i> Реконструкция: 2016-2025</li>
+                        <li><i class="fas fa-bicycle"></i> Велодорожки</li>
+                        <li><i class="fas fa-utensils"></i> 10+ кафе и ресторанов</li>
+                    </ul>
+                    
+                    <div class="attraction__actions">
+                        <button class="btn btn--primary btn-route">Маршрут прогулки</button>
+                        <button class="btn btn--outline btn-gallery">
+                            <i class="fas fa-images"></i> Фотогалерея
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- Модальное окно для карты -->
+<div id="routeModal" class="modal">
+  <div class="modal__content modal__content--compact">
+    <button class="modal__close">&times;</button>
+    <h3 class="modal__title">Маршрут прогулки<span class="legen-icon" style="background-color: #ff1100;"></h3></spin>
+    <div class="compact-map-container">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2de0b8886323039f34442e6e01d0defd66735f4ada9653ae05b3acbbad0e9c6c&amp;source=constructor" 
+              frameborder="0"
+              aria-label="Карта маршрута по набережной"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+        <div id="galleryModal" class="modal">
+            <div class="modal__content modal__content--vertical">
+                <button class="modal__close">&times;</button>
+                <h3 class="modal__title">Набережная Тухачевского</h3>
+                <div class="vertical-gallery">
+                    <img src="scale_1210.jpg" alt="Вид на набережную днем" class="gallery-img">
+                    <img src="5lIsOZjBUvk.jpg" alt="Вечерняя набережная" class="gallery-img">
+                    <img src="i.jpg" alt="Фонтаны на набережной" class="gallery-img">
+                    <img src="6647307.jpg" alt="Зимняя набережная" class="gallery-img">
+                </div>
+            </div>
+        </div>
+
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2 class="section-title">Новости и билеты</h2>
+                <p class="section-subtitle">Актуальные события и мероприятия в Омске</p>
+                
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="scale_1201.jpg" 
+                                 alt="Театральный фестиваль в Омске" 
+                                 loading="lazy">
+                            <div class="news-card__date">
+                                <span class="day">27</span>
+                                <span class="month">сен</span>
+                            </div>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Аркадий Аверченко "Альбом".</h3>
+                            <p class="news-card__excerpt">27 сентября в Омском театре драмы пройдет спектакль по рассказам Аркадия Аверченко «Чёртова дюжина».Спектакль «Альбом» — как и «Чёртова дюжина» — исследует любовь во всех её проявлениях: комичных, нелепых и трагичных. </p>
+                            <div class="news-card__meta">
+                                 <span><i class="fas fa-map-marker-alt"></i>Омский театр драмы</span>
+                                <span><i class="fas fa-clock"></i> 19:00</span>
+                            </div>
+                                <div class="news-card__actions">
+                                <a href="https://omskdrama.ru/buy/#/event/14118" class="btn btn--primary">Купить билет</a>
+                                <a href="https://omskdrama.ru/poster/repertoire/albom/" class="btn btn--outline">Подробнее</a>
+                
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="y7BIne1wWHM.jpg" 
+                                 alt="Концерт симфонического оркестра" 
+                                 loading="lazy">
+                            <div class="news-card__date">
+                                <span class="day">22</span>
+                                <span class="month">авг</span>
+                            </div>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title">Камерный оркестр. Рок на струнных 12+</h3>
+                            <p class="news-card__excerpt">Омский камерный оркестр представит программу «Рок на струнах», где будет:«Лунная соната» Бетховена зазвучит как «Я свободен» (Ария),Каприс Паганини превратится в «Du hast» (Rammstein)
+
+«Зима» Вивальди станет «Smoke on the water» (Deep Purple)</p>
+                            <div class="news-card__meta">
+                                <span><i class="fas fa-map-marker-alt"></i>Омская филармония</span>
+                                <span><i class="fas fa-clock"></i> 19:00</span>
+                            </div>
+                            <div class="news-card__actions">
+                                <a href="https://omfil.ru/booking/228324/" class="btn btn--primary">Купить билет</a>
+                                <a href="https://omfil.ru/afisha/228324/" class="btn btn--outline">Программа</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="23578_EXP05742_copy.jpg" 
+                                 alt="Выставка современного искусства" 
+                                 loading="lazy">
+                            <div class="news-card__date">
+                                <span class="day">2</span>
+                                <span class="month">сен</span>
+                            </div>
+                        </div>
+                        <div class="news-card__content">
+                            <h3 class="news-card__title"> Выставка Экспозиции Генерал-губернаторского дворца</h3>
+                            <p class="news-card__excerpt">Омский областной музей изобразительных искусств имени М.А. Врубеля представляет новую экспозицию в исторических интерьерах Генерал-губернаторского дворца.</p>
+                            <div class="news-card__meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Музей им. Врубеля</span>
+                                <span><i class="fas fa-clock"></i> 12:00-13:00</span>
+                            </div>
+                            <div class="news-card__actions">
+                                <a href="https://afisha.yandex.ru/omsk/art/ekspozitsii-general-gubernatorskogo-dvortsa?source=rubric&schedule-preset=tomorrow" class="btn btn--primary">Загегистрироваться</a>
+                                <a href="https://afisha.yandex.ru/omsk/art/ekspozitsii-general-gubernatorskogo-dvortsa?source=rubric&schedule-preset=tomorrow" class="btn btn--outline">О выставке</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="news-cta">
+                    <div class="news-cta__content">
+                        <h3>Подпишитесь на культурную афишу Омска</h3>
+                        <p>Получайте еженедельную рассылку с самыми интересными событиями города</p>
+                    </div>
+                    <form class="news-cta__form">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn btn--primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="map-section">
+            <div class="container">
+                <h2 class="section-title">Карта достопримечательностей</h2>
+                <p class="section-subtitle">Планируйте свой маршрут по Омску</p>
+                <div class="map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad6d47fe7c883946e68d6cd494d229a6864bed27dca0d850b484a7ed05bacce4c&amp;source=constructor" 
+                            width="100%" 
+                            height="500" 
+                            frameborder="0"
+                            loading="lazy"
+                            aria-label="Интерактивная карта Омска с достопримечательностями"
+                            title="Карта Омска"></iframe>
+                </div>
+                
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-icon" style="background-color: #ff1100;"></span>
+                        <span>Культурные объекты</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-icon" style="background-color: #4CAF50;"></span>
+                        <span>Парки и набережные</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-icon" style="background-color: #FF9800;"></span>
+                        <span>Кафе и рестораны</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__about">
+                <h3 class="footer__title">ОмскГид</h3>
+                <p class="footer__text">Официальный туристический гид по городу Омску. Мы помогаем открыть для себя лучшие места культурной столицы Сибири.</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer__links">
+                <h4 class="footer__subtitle">Быстрые ссылки</h4>
+                <ul>
+                    <li><a href="#library">Библиотека Пушкина</a></li>
+                    <li><a href="#theater">Театр драмы</a></li>
+                    <li><a href="#embankment">Набережная</a></li>
+                    <li><a href="#news">Билеты</a></li>
+                    <li><a href="#map">Карта города</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer__contact">
+                <h4 class="footer__subtitle">Контакты</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Омск, ул. Ленина, 1</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+73812222222">+7 (3812) 22-22-22</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@omskguide.ru">info@omskguide.ru</a></p>
+                </address>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <div class="container">
+                <p>&copy; 2025 ОмскГид. Все права защищены.</p>
+                <div class="footer__legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Наверх">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
