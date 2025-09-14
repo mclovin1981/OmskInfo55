@@ -365,10 +365,10 @@
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
-        // Инициализация Supabase
-        const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
-        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+           // 1. Инициализация Supabase
+    const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
         // Функция для загрузки и отображения новостей
         async function loadNews() {
@@ -434,4 +434,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
