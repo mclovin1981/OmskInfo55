@@ -439,4 +439,57 @@
 
     <script src="script.js"></script>
 </body>
+    <!-- ЭТОТ БЛОК ЗАМЕНИТЕ НА ВАШУ РАЗМЕТКУ -->
+<div id="news-container"></div>
+
+<!-- ПОДКЛЮЧИТЕ ЭТОТ СКРИПТ -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+    // 1. Инициализация Supabase (ЗАМЕНИТЕ ЭТИ КЛЮЧИ НА СВОИ!)
+    const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
+    const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+    // 2. Функция для загрузки и отображения новостей
+    async function loadNews() {
+        // Получаем данные из таблицы 'news'
+        let { data: news, error } = await supabase
+            .from('news')
+            .select('*')
+            .order('created_at', { ascending: false }); // Сортируем по дате создания, новые сверху
+
+        if (error) {
+            console.error('Ошибка загрузки новостей:', error);
+            return;
+        }
+
+        // 3. Находим контейнер для новостей
+        const container = document.getElementById('news-container');
+
+        // 4. Очищаем контейнер (если нужно)
+        container.innerHTML = '';
+
+        // 5. Для каждой новости создаем HTML-разметку
+        news.forEach(item => {
+            const newsItem = `
+                <div class="news-item">
+                    <div class="news-date">${item.date}</div>
+                    <img src="${item.image_url}" alt="${item.title}" class="news-image">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <p><strong>Место:</strong> ${item.place}</p>
+                    <p><strong>Время:</strong> ${item.time}</p>
+                    <a href="${item.button_link}" class="news-button">${item.button_text}</a>
+                    <a href="${item.button_text_info_link}" class="news-button">${item.button_text_info}</a>
+                </div>
+            `;
+            // 6. Добавляем разметку в контейнер
+            container.innerHTML += newsItem;
+        });
+    }
+
+    // 7. Запускаем функцию при загрузке страницы
+    document.addEventListener('DOMContentLoaded', loadNews);
+</script>
+
 </html>
