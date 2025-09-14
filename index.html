@@ -93,7 +93,7 @@
                     </ul>
                     
                     <div class="attraction__actions">
-                        <a href="https://omsklib.ru/" class="btn btn--primary">Записаться на экскурсию</button></a>
+                        <a href="https://omsklib.ru/" class="btn btn--primary">Записаться на экскурсию</a>
                         <button class="btn btn--outline btn-hours">
                             <i class="fas fa-clock"></i> Часы работы
                         </button>
@@ -180,7 +180,7 @@
                     </ul>
                     
                     <div class="attraction__actions">
-                        <a href="https://www.omskdrama.ru/poster/repertoire/" class="btn btn--primary">Афиша спектаклей</button></a>
+                        <a href="https://www.omskdrama.ru/poster/repertoire/" class="btn btn--primary">Афиша спектаклей</a>
                         <button class="btn btn--outline btn-map">
                             <i class="fas fa-map-marker-alt"></i> Как добраться
                         </button>
@@ -234,19 +234,20 @@
                 </div>
             </div>
         </section>
-<!-- Модальное окно для карты -->
-<div id="routeModal" class="modal">
-  <div class="modal__content modal__content--compact">
-    <button class="modal__close">&times;</button>
-    <h3 class="modal__title">Маршрут прогулки<span class="legen-icon" style="background-color: #ff1100;"></h3></spin>
-    <div class="compact-map-container">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2de0b8886323039f34442e6e01d0defd66735f4ada9653ae05b3acbbad0e9c6c&amp;source=constructor" 
-              frameborder="0"
-              aria-label="Карта маршрута по набережной"
-              allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
+
+        <div id="routeModal" class="modal">
+            <div class="modal__content modal__content--compact">
+                <button class="modal__close">&times;</button>
+                <h3 class="modal__title">Маршрут прогулки<span class="legen-icon" style="background-color: #ff1100;"></span></h3>
+                <div class="compact-map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2de0b8886323039f34442e6e01d0defd66735f4ada9653ae05b3acbbad0e9c6c&amp;source=constructor" 
+                            frameborder="0"
+                            aria-label="Карта маршрута по набережной"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
         <div id="galleryModal" class="modal">
             <div class="modal__content modal__content--vertical">
                 <button class="modal__close">&times;</button>
@@ -265,82 +266,7 @@
                 <h2 class="section-title">Новости и билеты</h2>
                 <p class="section-subtitle">Актуальные события и мероприятия в Омске</p>
                 
-                <div class="news-grid">
-                    <article class="news-card">
-                        <div class="news-card__image">
-                            <img src="scale_1201.jpg" 
-                                 alt="Театральный фестиваль в Омске" 
-                                 loading="lazy">
-                            <div class="news-card__date">
-                                <span class="day">27</span>
-                                <span class="month">сен</span>
-                            </div>
-                        </div>
-                        <div class="news-card__content">
-                            <h3 class="news-card__title">Аркадий Аверченко "Альбом".</h3>
-                            <p class="news-card__excerpt">27 сентября в Омском театре драмы пройдет спектакль по рассказам Аркадия Аверченко «Чёртова дюжина».Спектакль «Альбом» — как и «Чёртова дюжина» — исследует любовь во всех её проявлениях: комичных, нелепых и трагичных. </p>
-                            <div class="news-card__meta">
-                                 <span><i class="fas fa-map-marker-alt"></i>Омский театр драмы</span>
-                                <span><i class="fas fa-clock"></i> 19:00</span>
-                            </div>
-                                <div class="news-card__actions">
-                                <a href="https://omskdrama.ru/buy/#/event/14118" class="btn btn--primary">Купить билет</a>
-                                <a href="https://omskdrama.ru/poster/repertoire/albom/" class="btn btn--outline">Подробнее</a>
-                
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-card__image">
-                            <img src="y7BIne1wWHM.jpg" 
-                                 alt="Концерт симфонического оркестра" 
-                                 loading="lazy">
-                            <div class="news-card__date">
-                                <span class="day">22</span>
-                                <span class="month">авг</span>
-                            </div>
-                        </div>
-                        <div class="news-card__content">
-                            <h3 class="news-card__title">Камерный оркестр. Рок на струнных 12+</h3>
-                            <p class="news-card__excerpt">Омский камерный оркестр представит программу «Рок на струнах», где будет:«Лунная соната» Бетховена зазвучит как «Я свободен» (Ария),Каприс Паганини превратится в «Du hast» (Rammstein)
-
-«Зима» Вивальди станет «Smoke on the water» (Deep Purple)</p>
-                            <div class="news-card__meta">
-                                <span><i class="fas fa-map-marker-alt"></i>Омская филармония</span>
-                                <span><i class="fas fa-clock"></i> 19:00</span>
-                            </div>
-                            <div class="news-card__actions">
-                                <a href="https://omfil.ru/booking/228324/" class="btn btn--primary">Купить билет</a>
-                                <a href="https://omfil.ru/afisha/228324/" class="btn btn--outline">Программа</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-card__image">
-                            <img src="23578_EXP05742_copy.jpg" 
-                                 alt="Выставка современного искусства" 
-                                 loading="lazy">
-                            <div class="news-card__date">
-                                <span class="day">2</span>
-                                <span class="month">сен</span>
-                            </div>
-                        </div>
-                        <div class="news-card__content">
-                            <h3 class="news-card__title"> Выставка Экспозиции Генерал-губернаторского дворца</h3>
-                            <p class="news-card__excerpt">Омский областной музей изобразительных искусств имени М.А. Врубеля представляет новую экспозицию в исторических интерьерах Генерал-губернаторского дворца.</p>
-                            <div class="news-card__meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Музей им. Врубеля</span>
-                                <span><i class="fas fa-clock"></i> 12:00-13:00</span>
-                            </div>
-                            <div class="news-card__actions">
-                                <a href="https://afisha.yandex.ru/omsk/art/ekspozitsii-general-gubernatorskogo-dvortsa?source=rubric&schedule-preset=tomorrow" class="btn btn--primary">Загегистрироваться</a>
-                                <a href="https://afisha.yandex.ru/omsk/art/ekspozitsii-general-gubernatorskogo-dvortsa?source=rubric&schedule-preset=tomorrow" class="btn btn--outline">О выставке</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div id="news-container" class="news-grid"></div>
                 
                 <div class="news-cta">
                     <div class="news-cta__content">
@@ -437,59 +363,74 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="script.js"></script>
-</body>
-    <!-- ЭТОТ БЛОК ЗАМЕНИТЕ НА ВАШУ РАЗМЕТКУ -->
-<div id="news-container"></div>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // Инициализация Supabase
+        const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
+        const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-<!-- ПОДКЛЮЧИТЕ ЭТОТ СКРИПТ -->
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-    // 1. Инициализация Supabase (ЗАМЕНИТЕ ЭТИ КЛЮЧИ НА СВОИ!)
-    const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
-    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
-    const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+        // Функция для загрузки и отображения новостей
+        async function loadNews() {
+            try {
+                let { data: news, error } = await supabase
+                    .from('news')
+                    .select('*')
+                    .order('created_at', { ascending: false });
 
-    // 2. Функция для загрузки и отображения новостей
-    async function loadNews() {
-        // Получаем данные из таблицы 'news'
-        let { data: news, error } = await supabase
-            .from('news')
-            .select('*')
-            .order('created_at', { ascending: false }); // Сортируем по дате создания, новые сверху
+                if (error) {
+                    console.error('Ошибка загрузки новостей:', error);
+                    return;
+                }
 
-        if (error) {
-            console.error('Ошибка загрузки новостей:', error);
-            return;
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';
+
+                if (news && news.length > 0) {
+                    news.forEach(item => {
+                        const dateParts = item.date ? item.date.split(' ') : ['', ''];
+                        const day = dateParts[0] || '';
+                        const month = dateParts[1] || '';
+
+                        const newsItem = `
+                            <article class="news-card">
+                                <div class="news-card__image">
+                                    <img src="${item.image_url || ''}" 
+                                         alt="${item.title || 'Новость'}" 
+                                         loading="lazy">
+                                    <div class="news-card__date">
+                                        <span class="day">${day}</span>
+                                        <span class="month">${month}</span>
+                                    </div>
+                                </div>
+                                <div class="news-card__content">
+                                    <h3 class="news-card__title">${item.title || ''}</h3>
+                                    <p class="news-card__excerpt">${item.description || ''}</p>
+                                    <div class="news-card__meta">
+                                        <span><i class="fas fa-map-marker-alt"></i> ${item.place || ''}</span>
+                                        <span><i class="fas fa-clock"></i> ${item.time || ''}</span>
+                                    </div>
+                                    <div class="news-card__actions">
+                                        <a href="${item.button_link || '#'}" class="btn btn--primary">${item.button_text || 'Купить билет'}</a>
+                                        <a href="${item.button_link_info || '#'}" class="btn btn--outline">${item.button_text_info || 'Подробнее'}</a>
+                                    </div>
+                                </div>
+                            </article>
+                        `;
+                        container.innerHTML += newsItem;
+                    });
+                } else {
+                    container.innerHTML = '<p class="no-news">Новостей пока нет. Зайдите позже!</p>';
+                }
+            } catch (err) {
+                console.error('Ошибка:', err);
+                document.getElementById('news-container').innerHTML = '<p class="error-news">Не удалось загрузить новости. Проверьте подключение.</p>';
+            }
         }
 
-        // 3. Находим контейнер для новостей
-        const container = document.getElementById('news-container');
-
-        // 4. Очищаем контейнер (если нужно)
-        container.innerHTML = '';
-
-        // 5. Для каждой новости создаем HTML-разметку
-        news.forEach(item => {
-            const newsItem = `
-                <div class="news-item">
-                    <div class="news-date">${item.date}</div>
-                    <img src="${item.image_url}" alt="${item.title}" class="news-image">
-                    <h3>${item.title}</h3>
-                    <p>${item.description}</p>
-                    <p><strong>Место:</strong> ${item.place}</p>
-                    <p><strong>Время:</strong> ${item.time}</p>
-                    <a href="${item.button_link}" class="news-button">${item.button_text}</a>
-                    <a href="${item.button_text_info_link}" class="news-button">${item.button_text_info}</a>
-                </div>
-            `;
-            // 6. Добавляем разметку в контейнер
-            container.innerHTML += newsItem;
-        });
-    }
-
-    // 7. Запускаем функцию при загрузке страницы
-    document.addEventListener('DOMContentLoaded', loadNews);
-</script>
-
+        // Запуск при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadNews);
+    </script>
+    <script src="script.js"></script>
+</body>
 </html>
