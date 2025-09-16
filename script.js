@@ -403,8 +403,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // ... остальной ваш код ...
 });
   // Инициализация Supabase
-const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
+const supabaseUrl = 'https://msoortsenydhikmeowep.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zb29ydHNlbnlkaGlrbWVvd2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwMTQ3ODMsImV4cCI6MjA3MzU5MDc4M30.YiewlzuvmolyPHbmsfHuPHRcpRkAiNCnkTmb_GCxzxk';
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 async function loadNews() {
@@ -465,4 +465,5 @@ async function loadNews() {
 }
 
 document.addEventListener('DOMContentLoaded', loadNews);
+
 
