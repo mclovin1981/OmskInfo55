@@ -425,10 +425,21 @@
     }
 
     document.addEventListener('DOMContentLoaded', loadNews);
+
+         // Добавьте в начало функции loadNews
+    async function loadNews() {
+        console.log('🔄 Загрузка новостей началась...');
+        
+        // ... остальной код ...
+        
+        // Добавьте в конец
+        console.log('✅ Загрузка завершена. Найдено:', news.length, 'новостей');
+    }
 </script>
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
