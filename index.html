@@ -364,74 +364,10 @@
     </button>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script>
-    // Инициализация Supabase
-const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
-
-async function loadNews() {
-    try {
-        let { data: news, error } = await supabaseClient
-            .from('news')
-            .select('*')
-            .order('created_at', { ascending: false });
-
-        const container = document.getElementById('news-container');
-        
-        if (error) {
-            console.error('Ошибка загрузки:', error);
-            container.innerHTML = '<p class="error-news">Не удалось загрузить новости. Проверьте подключение.</p>';
-            return;
-        }
-
-        if (!news || news.length === 0) {
-            container.innerHTML = '<p class="no-news">Новостей пока нет. Зайдите позже!</p>';
-            return;
-        }
-
-        container.innerHTML = '';
-        news.forEach(item => {
-            const dateParts = item.date ? item.date.split(' ') : ['', ''];
-            const newsItem = `
-                <article class="news-card">
-                    <div class="news-card__image">
-                        <img src="${item.image_url || 'placeholder-image.jpg'}" 
-                             alt="${item.title || 'Новость'}" 
-                             loading="lazy"
-                             onerror="this.src='placeholder-image.jpg'">
-                        <div class="news-card__date">
-                            <span class="day">${dateParts[0] || ''}</span>
-                            <span class="month">${dateParts[1] || ''}</span>
-                        </div>
-                    </div>
-                    <div class="news-card__content">
-                        <h3 class="news-card__title">${item.title || ''}</h3>
-                        <p class="news-card__excerpt">${item.description || ''}</p>
-                        <div class="news-card__meta">
-                            <span><i class="fas fa-map-marker-alt"></i> ${item.place || ''}</span>
-                            <span><i class="fas fa-clock"></i> ${item.time || ''}</span>
-                        </div>
-                        <div class="news-card__actions">
-                            <a href="${item.button_link || '#'}" class="btn btn--primary">${item.button_text || 'Купить билет'}</a>
-                            <a href="${item.button_text_info_link || '#'}" class="btn btn--outline">${item.button_text_info || 'Подробнее'}</a>
-                        </div>
-                    </div>
-                </article>
-            `;
-            container.innerHTML += newsItem;
-        });
-    } catch (err) {
-        console.error('Ошибка:', err);
-        document.getElementById('news-container').innerHTML = '<p class="error-news">Ошибка загрузки новостей</p>';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', loadNews);
-</script>
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
