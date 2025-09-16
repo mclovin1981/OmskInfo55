@@ -369,7 +369,9 @@
     const supabaseUrl = 'https://dhkhqljddblqajllqngz.supabase.co';
     const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoa2hxbGpkZGJscWFqbGxxbmd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc4NTAzOTAsImV4cCI6MjA3MzQyNjM5MH0.FRO6qQIaOD-xwQLXSueOJbXa8Q9HLqpjlfRiFnShzq0';
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
-
+        console.log('🔄 Загрузка новостей началась...');
+ async function loadNews() {
+        
     async function loadNews() {
         try {
             let { data: news, error } = await supabaseClient
@@ -425,20 +427,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', loadNews);
-
-         // Добавьте в начало функции loadNews
-    async function loadNews() {
-        console.log('🔄 Загрузка новостей началась...');
-        
-        // ... остальной код ...
-        
-        // Добавьте в конец
-        console.log('✅ Загрузка завершена. Найдено:', news.length, 'новостей');
-    }
+console.log('✅ Загрузка завершена. Найдено:', news.length, 'новостей');
 </script>
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
