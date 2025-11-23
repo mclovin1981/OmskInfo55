@@ -412,7 +412,6 @@ async function loadNews() {
         let { data: news, error } = await supabaseClient
             .from('news')
             .select('*')
-            .eq('is_active', true) // Добавляем фильтр по активным новостям
             .order('created_at', { ascending: false });
 
         const container = document.getElementById('news-container');
@@ -430,96 +429,39 @@ async function loadNews() {
 
         container.innerHTML = '';
         news.forEach(item => {
+            const dateParts = item.date ? item.date.split(' ') : ['', ''];
             const newsItem = `
-                <article class="news-card" data-animate>
+                <article class="news-card">
                     <div class="news-card__image">
-                        <img src="${item.image_url || 'https://via.placeholder.com/400x300?text=Новость'}" 
+                        <img src="${item.image_url || 'placeholder-image.jpg'}" 
                              alt="${item.title || 'Новость'}" 
                              loading="lazy"
-                             onerror="this.src='https://via.placeholder.com/400x300?text=Изображение'">
-                        ${item.date ? `<div class="news-card__date">
-                            <span class="day">${formatDate(item.date)}</span>
-                        </div>` : ''}
+                             onerror="this.src='placeholder-image.jpg'">
+                        <div class="news-card__date">
+                            <span class="day">${dateParts[0] || ''}</span>
+                            <span class="month">${dateParts[1] || ''}</span>
+                        </div>
                     </div>
                     <div class="news-card__content">
-                        <h3 class="news-card__title">${item.title || 'Новое мероприятие'}</h3>
-                        <p class="news-card__excerpt">${item.description || 'Описание мероприятия'}</p>
+                        <h3 class="news-card__title">${item.title || ''}</h3>
+                        <p class="news-card__excerpt">${item.description || ''}</p>
                         <div class="news-card__meta">
-                            ${item.place ? `<span><i class="fas fa-map-marker-alt"></i> ${item.place}</span>` : ''}
-                            ${item.time ? `<span><i class="fas fa-clock"></i> ${item.time}</span>` : ''}
+                            <span><i class="fas fa-map-marker-alt"></i> ${item.place || ''}</span>
+                            <span><i class="fas fa-clock"></i> ${item.time || ''}</span>
                         </div>
                         <div class="news-card__actions">
-                            ${item.button_link ? `<a href="${item.button_link}" class="btn btn--primary" target="_blank">${item.button_text || 'Купить билет'}</a>` : ''}
-                            ${item.button_text_li ? `<a href="${item.button_text_li}" class="btn btn--outline" target="_blank">${item.button_text || 'Подробнее'}</a>` : ''}
+                            <a href="${item.button_link || '#'}" class="btn btn--primary">${item.button_text || 'Купить билет'}</a>
+                            <a href="${item.button_text_info_link || '#'}" class="btn btn--outline">${item.button_text_info || 'Подробнее'}</a>
                         </div>
                     </div>
                 </article>
             `;
             container.innerHTML += newsItem;
         });
-
-        // Запускаем анимацию для новых карточек
-        setTimeout(animateOnScroll, 100);
     } catch (err) {
         console.error('Ошибка:', err);
         document.getElementById('news-container').innerHTML = '<p class="error-news">Ошибка загрузки новостей</p>';
     }
 }
 
-// Вспомогательная функция для форматирования даты
-function formatDate(dateString) {
-    if (!dateString) return '';
-    
-    try {
-        const date = new Date(dateString);
-        if (isNaN(date.getTime())) {
-            // Если это не валидная дата, возвращаем как есть
-            return dateString;
-        }
-        
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        return `${day}.${month}`;
-    } catch (e) {
-        return dateString;
-    }
-}
-
-// Функция для анимации карточек
-function animateNewsCards() {
-    const newsCards = document.querySelectorAll('.news-card[data-animate]');
-    const windowHeight = window.innerHeight;
-    
-    newsCards.forEach((card, index) => {
-        const cardTop = card.getBoundingClientRect().top;
-        
-        if (cardTop < windowHeight - 100) {
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 150);
-        }
-    });
-}
-
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    // ... ваш существующий код ...
-    
-    // Загружаем новости
-    loadNews();
-    
-    // Добавляем обработчик скролла для анимации новостей
-    window.addEventListener('scroll', animateNewsCards);
-    
-    // Инициализация анимаций для новостей
-    const newsCards = document.querySelectorAll('.news-card');
-    newsCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // Запускаем начальную анимацию
-    setTimeout(animateNewsCards, 500);
-});
+document.addEventListener('DOMContentLoaded', loadNews);
