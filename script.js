@@ -1,3 +1,8 @@
+// Инициализация Supabase
+const supabaseUrl = 'https://msoortsenydhikmeowep.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zb29ydHNlbnlkaGlrbWVvd2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwMTQ3ODMsImV4cCI6MjA3MzU5MDc4M30.YiewlzuvmolyPHbmsfHuPHRcpRkAiNCnkTmb_GCxzxk';
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const navbarToggler = document.querySelector('.navbar__toggler');
@@ -103,11 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
             images.forEach(img => {
                 // Приоритетная загрузка на мобильных
                 img.loading = 'eager';
-                
-                // Можно добавить логику для загрузки мобильных версий изображений
-                // if (img.dataset.mobileSrc) {
-                //     img.src = img.dataset.mobileSrc;
-                // }
             });
         }
     }
@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    // Загружаем правильную версию изображения в зависимости от размера экрана
                     const srcset = img.getAttribute('srcset');
                     if (srcset) {
                         const sources = srcset.split(', ');
@@ -267,6 +266,27 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
     
+    // Обработчик для кнопки "Маршрут прогулки"
+    document.querySelectorAll('.btn-route').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('routeModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Закрытие модального окна с маршрутом
+    function closeRouteModal() {
+        document.getElementById('routeModal').classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    // Назначение обработчиков закрытия для маршрута
+    document.querySelector('#routeModal .modal__close').addEventListener('click', closeRouteModal);
+    document.getElementById('routeModal').addEventListener('click', function(e) {
+        if (e.target === this) closeRouteModal();
+    });
+    
     // Закрытие модальных окон
     modalClose.forEach(closeBtn => {
         closeBtn.addEventListener('click', function() {
@@ -303,116 +323,72 @@ document.addEventListener('DOMContentLoaded', function() {
             if (hoursModal.classList.contains('show')) {
                 closeHoursModal();
             }
+            
+            const routeModal = document.getElementById('routeModal');
+            if (routeModal.classList.contains('show')) {
+                closeRouteModal();
+            }
         }
     });
     
     // Оптимизация изображений при загрузке и изменении размера
     window.addEventListener('load', optimizeImagesForMobile);
     window.addEventListener('resize', optimizeImagesForMobile);
-});
-// Обработчик для кнопки "Маршрут прогулки"
-document.querySelectorAll('.btn-route').forEach(button => {
-  button.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('routeModal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-// Закрытие модального окна
-function closeRouteModal() {
-  document.getElementById('routeModal').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-// Назначение обработчиков закрытия
-document.querySelector('#routeModal .modal__close').addEventListener('click', closeRouteModal);
-document.getElementById('routeModal').addEventListener('click', function(e) {
-  if (e.target === this) closeRouteModal();
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeRouteModal();
-});
-// Добавьте этот код в ваш script.js файл
-
-document.addEventListener('DOMContentLoaded', function() {
-  // ... ваш существующий код ...
-  
-  // Анимация при скролле
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('[data-animate]');
-    const windowHeight = window.innerHeight;
-    const windowTop = window.scrollY;
-    const windowBottom = windowTop + windowHeight;
     
-    elements.forEach(element => {
-      const elementHeight = element.offsetHeight;
-      const elementTop = element.getBoundingClientRect().top + windowTop;
-      const elementBottom = elementTop + elementHeight;
-      
-      // Проверяем, находится ли элемент в области видимости
-      if (elementBottom >= windowTop && elementTop <= windowBottom) {
-        element.classList.add('animate');
-      } else {
-        // Можно раскомментировать, если нужно, чтобы анимация повторялась
-        // element.classList.remove('animate');
-      }
-    });
-  };
-  
-  // Инициализация анимаций
-  function initAnimations() {
-    const sections = [
-      '#library', 
-      '#theater', 
-      '#embankment', 
-      '#news', 
-      '#map'
-    ];
-    
-    sections.forEach((section, index) => {
-      const element = document.querySelector(section);
-      if (element) {
-        element.setAttribute('data-animate', '');
-        element.setAttribute('data-animate-delay', (index * 100) + 100);
-      }
-    });
-    
-    // Анимация для карточек новостей
-    const newsCards = document.querySelectorAll('.news-card');
-    newsCards.forEach((card, index) => {
-      card.setAttribute('data-animate', '');
-      card.setAttribute('data-animate-delay', (index * 100) + 100);
-    });
-    
-    // Анимация для CTA блока
-    const newsCta = document.querySelector('.news-cta');
-    if (newsCta) {
-      newsCta.setAttribute('data-animate', '');
-      newsCta.setAttribute('data-animate-delay', '600');
+    // Инициализация анимаций
+    function initAnimations() {
+        const sections = [
+            '#library', 
+            '#theater', 
+            '#embankment', 
+            '#news', 
+            '#map'
+        ];
+        
+        sections.forEach((section, index) => {
+            const element = document.querySelector(section);
+            if (element) {
+                element.setAttribute('data-animate', '');
+                element.setAttribute('data-animate-delay', (index * 100) + 100);
+            }
+        });
+        
+        // Анимация для CTA блока
+        const newsCta = document.querySelector('.news-cta');
+        if (newsCta) {
+            newsCta.setAttribute('data-animate', '');
+            newsCta.setAttribute('data-animate-delay', '600');
+        }
     }
-  }
-  
-  // Инициализируем анимации
-  initAnimations();
-  
-  // Запускаем при загрузке и при скролле
-  animateOnScroll();
-  window.addEventListener('scroll', animateOnScroll);
-  
-  // ... остальной ваш код ...
+    
+    // Инициализируем анимации
+    initAnimations();
+    
+    // Загружаем новости
+    loadNews();
+    
+    // Добавляем обработчик скролла для анимации новостей
+    window.addEventListener('scroll', animateNewsCards);
+    
+    // Инициализация анимаций для новостей
+    const newsCards = document.querySelectorAll('.news-card');
+    newsCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    // Запускаем начальную анимацию
+    setTimeout(animateNewsCards, 500);
 });
-  // Инициализация Supabase
-const supabaseUrl = 'https://msoortsenydhikmeowep.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zb29ydHNlbnlkaGlrbWVvd2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwMTQ3ODMsImV4cCI6MjA3MzU5MDc4M30.YiewlzuvmolyPHbmsfHuPHRcpRkAiNCnkTmb_GCxzxk';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
+// Функция для загрузки новостей из Supabase
 async function loadNews() {
     try {
         let { data: news, error } = await supabaseClient
             .from('news')
             .select('*')
-            .eq('is_active', true) // Добавляем фильтр по активным новостям
+            .eq('is_active', true)
             .order('created_at', { ascending: false });
 
         const container = document.getElementById('news-container');
@@ -429,9 +405,9 @@ async function loadNews() {
         }
 
         container.innerHTML = '';
-        news.forEach(item => {
+        news.forEach((item, index) => {
             const newsItem = `
-                <article class="news-card" data-animate>
+                <article class="news-card" data-animate data-animate-delay="${(index * 100) + 100}">
                     <div class="news-card__image">
                         <img src="${item.image_url || 'https://via.placeholder.com/400x300?text=Новость'}" 
                              alt="${item.title || 'Новость'}" 
@@ -459,7 +435,7 @@ async function loadNews() {
         });
 
         // Запускаем анимацию для новых карточек
-        setTimeout(animateOnScroll, 100);
+        setTimeout(animateNewsCards, 100);
     } catch (err) {
         console.error('Ошибка:', err);
         document.getElementById('news-container').innerHTML = '<p class="error-news">Ошибка загрузки новостей</p>';
@@ -502,28 +478,25 @@ function animateNewsCards() {
     });
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    // ... ваш существующий код ...
+// Анимация при скролле
+const animateOnScroll = function() {
+    const elements = document.querySelectorAll('[data-animate]');
+    const windowHeight = window.innerHeight;
+    const windowTop = window.scrollY;
+    const windowBottom = windowTop + windowHeight;
     
-    // Загружаем новости
-    loadNews();
-    
-    // Добавляем обработчик скролла для анимации новостей
-    window.addEventListener('scroll', animateNewsCards);
-    
-    // Инициализация анимаций для новостей
-    const newsCards = document.querySelectorAll('.news-card');
-    newsCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    elements.forEach(element => {
+        const elementHeight = element.offsetHeight;
+        const elementTop = element.getBoundingClientRect().top + windowTop;
+        const elementBottom = elementTop + elementHeight;
+        
+        // Проверяем, находится ли элемент в области видимости
+        if (elementBottom >= windowTop && elementTop <= windowBottom) {
+            element.classList.add('animate');
+        }
     });
-    
-    // Запускаем начальную анимацию
-    setTimeout(animateNewsCards, 500);
-});
+};
 
-
-
-
+// Запускаем при загрузке и при скролле
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll(); // Run once on load
